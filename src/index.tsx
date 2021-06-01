@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import '@/firebase/config';
+import './firebase/config';
 import 'bulma/css/bulma.min.css';
 
 import App from './App';

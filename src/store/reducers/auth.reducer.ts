@@ -1,1 +1,1 @@
-import {} from '@/store/types';
+import {} from '../types';
