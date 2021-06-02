@@ -19,15 +19,17 @@
     "sourceType": "module"
   },
   "plugins": [
-    "@typescript-eslint",
-    "react",
-    "react-hooks",
     "eslint-plugin-import-helpers",
+    "react",
+    "@typescript-eslint",
+    "react-hooks",
     "prettier"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
     "import-helpers/order-imports": [
       "warn",
       {
@@ -35,6 +37,7 @@
         "groups": ["module", "/^@shared/", ["parent", "sibling", "index"]],
         "alphabetize": { "order": "asc", "ignoreCase": true }
       }
-    ]
+    ],
+    "react/button-has-type": "off"
   }
 }
