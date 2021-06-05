@@ -6,7 +6,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: FC<ButtonProps> = ({
-  type = 'button',
+  type,
   className,
   text,
   disabled,

@@ -16,7 +16,7 @@ const Header: FC = () => {
   };
 
   return (
-    <div className="navbar is-spaced has-shadow">
+    <nav className="navbar is-spaced has-shadow">
       <div className="container">
         <div className="navbar-brand">
           <Link className="navbar-item" to={authenticated ? '/dashboard' : '/'}>
@@ -36,7 +36,7 @@ const Header: FC = () => {
                   onClick={() => history.push('/signup')}
                 />
                 <Button
-                  text="Sign ip"
+                  text="Sign in"
                   onClick={() => history.push('/signin')}
                 />
               </div>
@@ -44,7 +44,7 @@ const Header: FC = () => {
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
