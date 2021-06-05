@@ -1,14 +1,14 @@
 import { FC, useState, FormEvent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { RootState } from '../../store';
-import { signup, setError } from '../../store/actions/auth.actions';
+import { signin, setError } from '../../store/actions/auth.actions';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
 import Message from '../UI/Message';
 
-const SignUp: FC = () => {
-  const [firstName, setFirstName] = useState('');
+const SignIn: FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +28,7 @@ const SignUp: FC = () => {
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
     setIsLoading(true);
-    dispatch(signup({ email, password, firstName }, () => setIsLoading(false)));
+    dispatch(signin({ email, password }, () => setIsLoading(false)));
   };
 
   return (
@@ -37,13 +37,6 @@ const SignUp: FC = () => {
         <h2 className="has-text-centered is-size-2 mb-3">Sign Up</h2>
         <form className="form" onSubmit={submitHandler}>
           {error && <Message type="danger" message={error} />}
-          <Input
-            name="firstName"
-            value={firstName}
-            placeholder="First name"
-            label="First name"
-            onChange={event => setFirstName(event.target.value)}
-          />
           <Input
             type="email"
             name="email"
@@ -61,8 +54,11 @@ const SignUp: FC = () => {
             onChange={event => setPassword(event.target.value)}
           />
 
+          <p>
+            <Link to="/forgot-password">Forgot password ?</Link>
+          </p>
           <Button
-            text={isLoading ? 'Loading...' : 'Sign Up'}
+            text={isLoading ? 'Loading...' : 'Sign In'}
             className="is-primary is-fullwidth mt-5"
             disabled={isLoading}
           />
@@ -72,4 +68,4 @@ const SignUp: FC = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;
