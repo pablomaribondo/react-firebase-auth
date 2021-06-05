@@ -24,6 +24,7 @@ const Input: FC<InputProps> = ({
           value={value}
           name={name}
           id={name}
+          autoComplete="off"
           onChange={onChange}
         />
       </div>
